@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class RayCastCamera : MonoBehaviour
 {
-
     [SerializeField] private Button _useButton;
     public Ray Rays 
     { 
@@ -18,13 +17,12 @@ public class RayCastCamera : MonoBehaviour
 
     private void Update()
     {
-        OnRayHit(Rays);
+        OnRayHit();
     }
 
-    public void OnRayHit(Ray ray)
+    private void OnRayHit()
     {
-        Debug.DrawRay(transform.position, transform.forward * 100f, Color.red);
-        if (Physics.Raycast(ray))
+        if(Physics.Raycast(Rays))
         {
             _useButton.gameObject.SetActive(true);
         }
