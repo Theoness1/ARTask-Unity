@@ -12,7 +12,7 @@ public class HideOutline : MonoBehaviour
         OutlineObject();
     }
 
-    void AddOutline(GameObject gameObject)
+    private void AddOutline(GameObject gameObject)
     {
         if (_currentGo != gameObject)
         {
@@ -24,7 +24,7 @@ public class HideOutline : MonoBehaviour
 
     }
 
-    void ClearOutline()
+    private void ClearOutline()
     {
         if (_currentGo != null)
         {
@@ -34,11 +34,11 @@ public class HideOutline : MonoBehaviour
         }
     }
 
-    void OutlineObject()
+    private void OutlineObject()
     {
         if (Physics.Raycast(_rayCastCamera.Rays, out RaycastHit hit))
         {
-            if (hit.collider.gameObject.CompareTag("Outline"))
+            if (hit.collider.gameObject.TryGetComponent(out Outline _))
             {
                 GameObject hitObject = hit.collider.gameObject;
                 AddOutline(hitObject);
