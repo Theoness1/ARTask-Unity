@@ -33,7 +33,7 @@ public class HideOutline : MonoBehaviour
             _currentGo = null;
         }
     }
-
+    //
     private void OutlineObject()
     {
         if (Physics.Raycast(_rayCastCamera.Rays, out RaycastHit hit))
